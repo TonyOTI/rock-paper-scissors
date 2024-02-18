@@ -43,25 +43,81 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+let rock = document.querySelector('#rock');
+let paper = document.querySelector('#paper');
+let scissors = document.querySelector('#scissors');
+
 function game() {
     let playerScore = 0;
     let cpuScore = 0;
-    while (playerScore < 3 && cpuScore < 3) {
-        let playerSelection = prompt("Rock, paper, or scissors?");
-        let computerSelection = getComputerChoice();
-        let round = playRound(playerSelection, computerSelection);
-        if (round == 1) {
+    
+    function checkWin() {
+        if (playerScore === 5) {
+            console.log("Congratumalations! You win.");
+            playerScore = 0;
+            cpuScore = 0;
+        }
+        else if (cpuScore === 5) {
+            console.log("You're dead and gone, bucko.");
+            playerScore = 0;
+            cpuScore = 0;
+        }
+    }
+
+    rock.addEventListener('click', () => {
+        let cpu = getComputerChoice();
+        let point = playRound("rock", cpu);
+        if (point === 1) {
             playerScore++;
+            checkWin();
+            return;
         }
-        else if (round == 2) {
+        else if (point === 2) {
             cpuScore++;
+            checkWin();
+            return;
         }
-    }
-    if (playerScore === 3) {
-        console.log("Congratumalations! You win.");
-    }
-    else if (cpuScore === 3) {
-        console.log("You're dead and gone, bucko.");
-    }
+        else {
+            return;
+        }
+    });
+    
+    paper.addEventListener('click', () => {
+        let cpu = getComputerChoice();
+        let point = playRound("paper", cpu);
+        if (point === 1) {
+            playerScore++;
+            checkWin();
+            return;
+        }
+        else if (point === 2) {
+            cpuScore++;
+            checkWin();
+            return;
+        }
+        else {
+            return;
+        }
+    });
+    
+    scissors.addEventListener('click', () => {
+        let cpu = getComputerChoice();
+        let point = playRound("scissors", cpu);
+        if (point === 1) {
+            playerScore++;
+            checkWin();
+            return;
+        }
+        else if (point === 2) {
+            cpuScore++;
+            checkWin();
+            return;
+        }
+        else {
+            return;
+        }
+    });
+
+    return;
 }
 game();
