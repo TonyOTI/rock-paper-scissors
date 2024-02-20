@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 10%;
+}
+
+h1 {
+    color: darkred;
+}
+
+h2 {
+    color:maroon;
+    font-style: italic;
+}
+
+.headers {
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    gap: 50px;
+}
+
+.btn {
+    border: 5px solid crimson;
+    border-radius: 50%;
+    width: 200px;
+    height: 100px;
+    color: darkred;
+    background-color:beige;
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:active {
+    background-color: bisque;
+}

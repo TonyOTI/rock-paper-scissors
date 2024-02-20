@@ -50,6 +50,13 @@ let scissors = document.querySelector('#scissors');
 function game() {
     let playerScore = 0;
     let cpuScore = 0;
+
+    updateScore();
+
+    function updateScore() {
+        document.getElementById("playerScoreDisplay").innerHTML = playerScore.toString();
+        document.getElementById("cpuScoreDisplay").innerHTML = cpuScore.toString();
+    }
     
     function checkWin() {
         if (playerScore === 5) {
@@ -70,14 +77,17 @@ function game() {
         if (point === 1) {
             playerScore++;
             checkWin();
+            updateScore();
             return;
         }
         else if (point === 2) {
             cpuScore++;
             checkWin();
+            updateScore();
             return;
         }
         else {
+            updateScore();
             return;
         }
     });
@@ -88,14 +98,17 @@ function game() {
         if (point === 1) {
             playerScore++;
             checkWin();
+            updateScore();
             return;
         }
         else if (point === 2) {
             cpuScore++;
             checkWin();
+            updateScore();
             return;
         }
         else {
+            updateScore();
             return;
         }
     });
@@ -106,14 +119,17 @@ function game() {
         if (point === 1) {
             playerScore++;
             checkWin();
+            updateScore();
             return;
         }
         else if (point === 2) {
             cpuScore++;
             checkWin();
+            updateScore();
             return;
         }
         else {
+            updateScore();
             return;
         }
     });
@@ -121,3 +137,5 @@ function game() {
     return;
 }
 game();
+
+
