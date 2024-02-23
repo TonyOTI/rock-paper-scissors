@@ -9,35 +9,36 @@ function playRound(playerSelection, computerSelection) {
     let player = playerSelection.toLowerCase();
     let cpu = computerSelection.toLowerCase();
     if (player === cpu) {
+        document.getElementById("round-result").innerHTML = "Tie.";
         return 0;
     }
     else if ((player === "rock" || cpu === "rock") && (player === "scissors" || cpu === "scissors")) {
         if (player === "rock") {
-            console.log("You won! Rock beats scissors.");
+            document.getElementById("round-result").innerHTML = "You won! Rock beats scissors.";
             return 1;
         }
         else {
-            console.log("You lost! Scissors loses to rock.");
+            document.getElementById("round-result").innerHTML = "You lost! Scissors loses to rock.";
             return 2;
         }
     }
     else if ((player === "scissors" || cpu === "scissors") && (player === "paper" || cpu === "paper")) {
         if (player === "scissors") {
-            console.log("You won! Scissors beat paper.");
+            document.getElementById("round-result").innerHTML = "You won! Scissors beat paper.";
             return 1;
         }
         else {
-            console.log("You lost! Paper loses to scissors.");
+            document.getElementById("round-result").innerHTML = "You lost! Paper loses to scissors.";
             return 2;
         }
     }
     else if ((player === "paper" || cpu === "paper") && (player === "rock" || cpu === "rock")) {
         if (player === "paper") {
-            console.log("You won! Paper beats rock.");
+            document.getElementById("round-result").innerHTML = "You won! Paper beats rock.";
             return 1;
         }
         else {
-            console.log("You lost! Rock loses to paper.");
+            document.getElementById("round-result").innerHTML = "You lost! Rock loses to paper.";
             return 2;
         }
     }
@@ -60,18 +61,19 @@ function game() {
     
     function checkWin() {
         if (playerScore === 5) {
-            console.log("Congratumalations! You win.");
+            document.getElementById("win-loss").innerHTML = "Congrats! You won";
             playerScore = 0;
             cpuScore = 0;
         }
         else if (cpuScore === 5) {
-            console.log("You're dead and gone, bucko.");
+            document.getElementById("win-loss").innerHTML = "Failure! You lose";
             playerScore = 0;
             cpuScore = 0;
         }
     }
 
     rock.addEventListener('click', () => {
+        document.getElementById("win-loss").innerHTML = "";
         let cpu = getComputerChoice();
         let point = playRound("rock", cpu);
         if (point === 1) {
@@ -93,6 +95,7 @@ function game() {
     });
     
     paper.addEventListener('click', () => {
+        document.getElementById("win-loss").innerHTML = "";
         let cpu = getComputerChoice();
         let point = playRound("paper", cpu);
         if (point === 1) {
@@ -114,6 +117,7 @@ function game() {
     });
     
     scissors.addEventListener('click', () => {
+        document.getElementById("win-loss").innerHTML = "";
         let cpu = getComputerChoice();
         let point = playRound("scissors", cpu);
         if (point === 1) {
